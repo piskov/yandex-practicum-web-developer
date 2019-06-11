@@ -1,2 +1,2 @@
 # YandexFrontend
-Front-end develop course from Yandex.
+Front-end developer course from Yandex.
