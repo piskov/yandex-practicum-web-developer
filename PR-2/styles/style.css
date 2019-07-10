@@ -2,7 +2,7 @@
     from {
         transform: rotate(0deg);
     }
-  
+
     to {
         transform: rotate(360deg);
     }
@@ -264,7 +264,7 @@ a:hover {
     flex-direction: column;
     overflow: hidden;
     padding: 90px 0px;
-    
+
     background-color: #1F1F1F;
 }
 
@@ -309,7 +309,7 @@ a:hover {
 
 .khan__book-pic-wrapper {
     height: 608px;
-    width: 620px;    
+    width: 620px;
     overflow: hidden;
 }
 
@@ -476,7 +476,7 @@ a:hover {
 .table__cell_theme_dark {
     margin-right: 0px;
     margin-top: 80px;
-    
+
     width: 200px;
 
     color: white;
