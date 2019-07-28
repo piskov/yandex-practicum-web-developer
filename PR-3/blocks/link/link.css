@@ -1,0 +1,11 @@
+@import url('./_with-caption/link_with-caption.css');
+
+.link {
+    color: white;
+    text-decoration: none;
+}
+
+.link:hover {
+    opacity: 0.7;
+    transition: opacity 0.15s ease-out;
+}

@@ -1,0 +1,7 @@
+.places__text {
+    margin: 1.33em 0px 0px 0px;
+}
+
+.places__text:first-child {
+    margin-top: -4px;
+}

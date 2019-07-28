@@ -1,0 +1,7 @@
+.footer__link {
+    margin-left: 15px;
+}
+
+.footer__link:first-child {
+    margin: 0px;
+}

@@ -1,0 +1,17 @@
+@import url('./__placeholder/card__placeholder.css');
+
+.card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+
+    border-radius: 5px;
+}
+
+.card:hover .card__placeholder {
+    opacity: 0.2;
+    transition: opacity 0.15s ease-out;
+ }
