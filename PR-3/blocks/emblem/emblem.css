@@ -3,3 +3,7 @@
 @import url('./__image/emblem__image.css');
 @import url('./__item/emblem__item.css');
 @import url('./__title/emblem__title.css');
+
+.emblem {
+    display: block;
+}

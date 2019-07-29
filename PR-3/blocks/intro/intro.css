@@ -5,3 +5,7 @@
 @import url('./__subtitle/intro__subtitle.css');
 @import url('./__title/intro__title.css');
 @import url('./__two-columns/intro__two-columns.css');
+
+.intro {
+    display: block;
+}

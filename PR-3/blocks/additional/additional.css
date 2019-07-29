@@ -1,3 +1,7 @@
 @import url('./__container/additional__container.css');
 @import url('./__description/additional__description.css');
 @import url('./__heading/additional__heading.css');
+
+.additional {
+    display: block;
+}

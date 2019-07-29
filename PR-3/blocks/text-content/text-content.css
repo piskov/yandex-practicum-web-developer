@@ -1,0 +1,8 @@
+@import url('./_size/text-content_size_normal.css');
+@import url('./_size/text-content_size_small-compressed.css');
+@import url('./_size/text-content_size_small.css');
+@import url('./_underlined/text-content_underlined.css');
+
+.text-content {
+    font-weight: normal;
+}

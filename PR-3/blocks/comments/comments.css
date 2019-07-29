@@ -2,3 +2,7 @@
 @import url('./__container/comments__container.css');
 @import url('./__photo/comments__photo.css');
 @import url('./__quote/comments__quote.css');
+
+.comments {
+    display: block;
+}

@@ -1,3 +1,4 @@
+@import url('./_no-hover/link_no-hover.css');
 @import url('./_with-caption/link_with-caption.css');
 
 .link {
@@ -5,7 +6,7 @@
     text-decoration: none;
 }
 
-.link:hover {
+.link:not(.link_no-hover):hover {
     opacity: 0.7;
     transition: opacity 0.15s ease-out;
 }

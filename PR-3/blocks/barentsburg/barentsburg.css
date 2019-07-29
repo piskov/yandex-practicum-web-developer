@@ -4,3 +4,7 @@
 @import url('./__map/barentsburg__map.css');
 @import url('./__text/barentsburg__text.css');
 @import url('./__title/barentsburg__title.css');
+
+.barentsburg {
+    display: block;
+}

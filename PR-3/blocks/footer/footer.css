@@ -2,8 +2,6 @@
 @import url('./__link/footer__link.css');
 
 .footer {
-    margin: 161px 0px 39px 0px;
-
     align-items: baseline;
     display: flex;
     justify-content: space-between;

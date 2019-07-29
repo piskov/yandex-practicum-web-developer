@@ -5,3 +5,7 @@
 @import url('./__subtitle/video__subtitle.css');
 @import url('./__description/video__description.css');
 @import url('./__title/video__title.css');
+
+.video {
+    display: block;
+}

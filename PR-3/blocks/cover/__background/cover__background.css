@@ -1,7 +1,7 @@
 .cover__background {
     padding-top: 50%;
 
-    background:url('/images/cover.jpg');
+    background:url('../../../images/cover.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

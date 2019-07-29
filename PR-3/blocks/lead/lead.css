@@ -5,6 +5,5 @@
 @import url('./__title/lead__title.css');
 
 .lead {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }

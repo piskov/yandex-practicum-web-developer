@@ -3,3 +3,7 @@
 @import url('./__place/places__place.css');
 @import url('./__text/places__text.css');
 @import url('./__title/places__title.css');
+
+.places {
+    display: block;
+}
