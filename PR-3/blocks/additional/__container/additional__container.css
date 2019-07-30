@@ -1,0 +1,12 @@
+.additional__container {
+    margin-top: 64px;
+
+    column-gap: 16px;
+    display: grid;
+    grid-auto-columns: 284px;
+    grid-auto-rows: 330px;
+    grid-template-columns: repeat(auto-fill, 284px);
+    grid-template-rows: repeat(auto-fill, 330px);
+    justify-content: center;
+    row-gap: 16px;
+}

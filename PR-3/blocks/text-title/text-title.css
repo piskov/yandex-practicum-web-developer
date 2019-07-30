@@ -1,0 +1,9 @@
+@import url('./_size/text-title_size_lead.css');
+@import url('./_size/text-title_size_mini.css');
+@import url('./_size/text-title_size_normal-compressed.css');
+@import url('./_size/text-title_size_normal.css');
+@import url('./_size/text-title_size_small.css');
+
+.text-title {
+    font-weight: 900;
+}

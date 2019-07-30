@@ -1,0 +1,11 @@
+.comments__container {
+    margin-top: 11px;
+
+    column-gap: 19px;
+    display: grid;
+    grid-auto-columns: 382px;
+    grid-template-columns: repeat(auto-fill, 382px);
+    grid-template-rows: auto;
+    justify-content: center;
+    row-gap: 19px;
+}

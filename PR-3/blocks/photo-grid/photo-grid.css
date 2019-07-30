@@ -1,0 +1,10 @@
+@import url('./__photo/photo-grid__photo.css');
+
+.photo-grid {
+    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 284px);
+    grid-template-rows: repeat(auto-fill, 188px);
+    justify-content: center;
+    row-gap: 16px;
+}

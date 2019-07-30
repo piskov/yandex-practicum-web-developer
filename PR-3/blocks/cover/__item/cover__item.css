@@ -1,0 +1,21 @@
+.cover__item {
+    bottom: 0%;
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: rgba(42, 44, 47, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+.cover__item:hover {
+    background: rgba(42, 44, 47, 0.8);
+    transition: background 0.15s ease-out;
+}

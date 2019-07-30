@@ -1,0 +1,12 @@
+.video__container {
+    margin-top: 64px;
+
+    column-gap: 18px;
+    display: grid;
+    grid-auto-columns: 583px;
+    grid-auto-rows: 323px;
+    grid-template-columns: repeat(auto-fill, 583px);
+    grid-template-rows: repeat(auto-fill, 323px);
+    justify-content: center;
+    row-gap: 18px;
+}

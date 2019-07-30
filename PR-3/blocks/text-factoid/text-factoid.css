@@ -1,0 +1,6 @@
+@import url('./_bold/text-factoid_bold.css');
+
+.text-factoid {
+    font-size: 13px;
+    line-height: 20px;
+}
