@@ -1,0 +1,9 @@
+@import url('./__item/language-picker__item.css');
+@import url('./__item/_is-current/language-picker__item_is-current.css');
+
+.language-picker {
+    margin: 0px;
+
+    padding: 0px;
+    list-style: none;
+}

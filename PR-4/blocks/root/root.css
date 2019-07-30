@@ -1,0 +1,21 @@
+@import url('./__comments/root__comments.css');
+@import url('./__cover/root__cover.css');
+@import url('./__footer/root__footer.css');
+@import url('./__header/root__header.css');
+@import url('./__intro/root__intro.css');
+@import url('./__lead/root__lead.css');
+@import url('./__photo-grid/root__photo-grid.css');
+@import url('./__places/root__places.css');
+@import url('./__video/root__video.css');
+
+.root {
+    margin: 0px auto;
+
+    max-width: 1184px;
+    padding: 0px 17px;
+
+    font-family: Inter, Arial, sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
