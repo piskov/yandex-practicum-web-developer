@@ -1,0 +1,6 @@
+@import url('./_bold/text-callout_bold.css');
+
+.text-callout {
+    font-size: 10px;
+    line-height: 16px;
+}
