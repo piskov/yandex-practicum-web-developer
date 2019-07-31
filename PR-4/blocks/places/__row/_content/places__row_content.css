@@ -1,0 +1,11 @@
+.places__row_content {
+    margin-top: 52px;
+}
+
+@media screen
+       and (min-width: 769px)
+       and (max-width: 1024px) {
+    .places__row_content {
+        margin-top: 48px;
+    }
+}

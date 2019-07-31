@@ -3,3 +3,10 @@
 
     max-width: 984px;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .root__intro {
+        margin-top: 120px;
+    }
+}

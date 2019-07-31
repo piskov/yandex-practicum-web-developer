@@ -1,4 +1,11 @@
 .text-title_size_normal-compressed {
-    font-size: 72px;
-    line-height: 65px;
+    font-size: 4.5rem;
+    line-height: 0.9;
+}
+
+@media screen and (max-width: 1023px) {
+    .text-title_size_normal-compressed  {
+        font-size: 2rem;
+        line-height: 1.09;
+    }
 }

@@ -1,3 +1,17 @@
 .places__link {
-    align-self: flex-end;
+    display: block;
+}
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 701px) {
+    .places__link {
+        margin-bottom: 2px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .places__link {
+        display: none;
+    }
 }

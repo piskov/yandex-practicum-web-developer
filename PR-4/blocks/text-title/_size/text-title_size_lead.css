@@ -1,4 +1,11 @@
 .text-title_size_lead {
-    font-size: 96px;
-    line-height: 92px;
+    font-size: 6rem;
+    line-height: 0.96;
+}
+
+@media screen and (max-width: 767px) {
+    .text-title_size_lead {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
 }

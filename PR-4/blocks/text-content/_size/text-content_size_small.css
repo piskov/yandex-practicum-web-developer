@@ -1,4 +1,11 @@
 .text-content_size_small {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 0.88rem;
+    line-height: 1.71;
+}
+
+@media screen and (max-width: 1023px) {
+    .text-content_size_small  {
+        font-size: 1rem;
+        line-height: 1.69;
+    }
 }

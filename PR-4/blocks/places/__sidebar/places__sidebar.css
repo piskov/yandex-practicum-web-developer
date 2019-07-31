@@ -1,0 +1,19 @@
+.places__sidebar {
+    flex-basis: 460px;
+    flex-grow: 1;
+}
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 921px) {
+    .places__sidebar {
+        flex-basis: 440px;
+    }
+}
+
+@media screen
+       and (max-width: 920px) {
+    .places__sidebar {
+        flex-basis: 340px;
+    }
+}

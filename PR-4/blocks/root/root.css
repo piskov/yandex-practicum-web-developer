@@ -12,10 +12,13 @@
     margin: 0px auto;
 
     max-width: 1184px;
-    padding: 0px 17px;
 
     font-family: Inter, Arial, sans-serif;
+    /* Правильнее использовать субпиксельное, а не просто сглаживание,
+       поэтому написал так */
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
+
     text-rendering: optimizeLegibility;
+
 }

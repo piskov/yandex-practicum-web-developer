@@ -3,10 +3,36 @@
 
     column-gap: 18px;
     display: grid;
-    grid-auto-columns: 583px;
     grid-auto-rows: 323px;
     grid-template-columns: repeat(auto-fill, 583px);
-    grid-template-rows: repeat(auto-fill, 323px);
     justify-content: center;
     row-gap: 18px;
+}
+
+@media screen
+       and (max-width: 1279px)
+       and (min-width: 1024px) {
+    .video__container {
+        grid-auto-rows: 288px;
+        grid-template-columns: repeat(auto-fill, 456px);
+        column-gap: 16px;
+    }
+}
+
+@media screen
+       and (max-width: 1023px)
+       and (min-width: 400px) {
+    .video__container {
+        grid-auto-rows: 200px;
+        grid-template-columns: repeat(auto-fill, 352px);
+        column-gap: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .video__container {
+        grid-auto-rows: 192px;
+        grid-template-columns: repeat(auto-fill, 288px);
+        row-gap: 8px;
+    }
 }

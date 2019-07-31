@@ -1,0 +1,33 @@
+.places__description {
+    margin: 0px 0px 0px 40px;
+
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: calc(50% - 40px);
+}
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 769px) {
+    .places__description {
+        margin-left: 32px;
+        min-width: calc(50% - 32px);
+    }
+}
+
+@media screen
+       and (max-width: 768px)
+       and (min-width: 701px) {
+    .places__description {
+        margin-left: 28px;
+        min-width: calc(50% - 28px);
+    }
+}
+
+@media screen
+       and (max-width: 700px) {
+    .places__description {
+        margin-left: 0px;
+        min-width: 50%;
+    }
+}

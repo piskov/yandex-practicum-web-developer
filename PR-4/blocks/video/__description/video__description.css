@@ -1,4 +1,26 @@
 .video__description {
-    margin: 30px;
+    margin: 0px 0px 30px 30px;
     max-width: 322px;
+}
+
+@media screen
+       and (max-width: 1279px)
+       and (min-width: 1024px) {
+    .video__description {
+        margin-bottom: 35px;
+    }
+}
+
+@media screen
+       and (max-width: 1023px)
+       and (min-width: 375px) {
+    .video__description {
+        margin: 0px 24px 24px 24px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .video__description {
+        margin: 0px 16px 16px 16px;
+    }
 }
