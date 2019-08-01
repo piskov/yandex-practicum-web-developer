@@ -1,12 +1,26 @@
 .root__places {
-    margin: 106px auto 0px;
+    margin-top: 106px;
 
     max-width: 984px;
 }
 
-
-@media screen and (max-width: 1024px) {
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 769px) {
     .root__places {
         margin-top: 119px;
+    }
+}
+
+@media screen and (max-width: 768px)
+       and (min-width: 376px) {
+    .root__places {
+        margin-top: 105px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .root__places {
+        margin-top: 67px;
     }
 }

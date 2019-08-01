@@ -8,14 +8,14 @@
 
 @media screen
        and (max-width: 1024px)
-       and (min-width: 769px) {
+       and (min-width: 376px) {
     .places__place{
-        margin: 82px 0px 0px;
+        margin: 83px 0px 0px;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .places__place {
-        margin: 75px 0px 0px;
+@media screen and (max-width: 375px) {
+    .places__place{
+        margin: 55px 0px 0px;
     }
 }

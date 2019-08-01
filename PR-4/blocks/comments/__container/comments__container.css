@@ -6,11 +6,19 @@
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     grid-template-rows: auto;
     justify-content: center;
-    row-gap: 47px;
+    row-gap: 50px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen
+       and (max-width: 768px)
+       and (min-width: 376px) {
     .comments__container {
         grid-template-columns: auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .comments__container {
+        margin-top: 44px;
     }
 }

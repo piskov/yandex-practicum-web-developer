@@ -5,3 +5,15 @@
 
     text-align: center;
 }
+
+@media screen and (max-width: 1023px) {
+    .lead__subtitle {
+        max-width: unset;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .lead__subtitle {
+        margin-top: 13px;
+    }
+}

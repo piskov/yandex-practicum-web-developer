@@ -1,9 +1,25 @@
 .root__video {
-    margin: 108px auto 0px;
+    margin-top: 103px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 769px) {
     .root__video {
-        margin-top: 98px;
+        margin-top: 100px;
+    }
+}
+
+@media screen
+       and (max-width: 768px)
+       and (min-width: 376px) {
+    .root__video {
+        margin-top: 112px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .root__video {
+        margin-top: 53px;
     }
 }

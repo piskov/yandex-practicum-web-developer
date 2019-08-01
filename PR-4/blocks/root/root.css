@@ -12,6 +12,7 @@
     margin: 0px auto;
 
     max-width: 1184px;
+    min-width: 320px;
 
     font-family: Inter, Arial, sans-serif;
     /* Правильнее использовать субпиксельное, а не просто сглаживание,

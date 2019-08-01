@@ -1,3 +1,17 @@
 .root__cover {
-    margin: 95px auto 0px;
+    margin: 97px auto 0px;
+}
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 376px)  {
+    .root__cover {
+        margin-top: 102px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .root__cover {
+        margin-top: 49px;
+    }
 }

@@ -7,7 +7,7 @@
        and (max-width: 1279px)
        and (min-width: 1024px) {
     .video__description {
-        margin-bottom: 35px;
+        margin-bottom: 32px;
     }
 }
 

@@ -1,3 +1,20 @@
 .lead__image-caption {
-    margin: 0.3em 0px 0px 0px;
+    margin-top: 0.3em;
+}
+
+@media screen
+       and (max-width: 1000px)
+       and (min-width: 768px) {
+    .lead__image-caption {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media screen
+       and (max-width: 767px) {
+    .lead__image-caption {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }

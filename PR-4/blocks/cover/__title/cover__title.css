@@ -4,3 +4,29 @@
 
     color: #fffdfd;
 }
+
+@media screen
+       and (max-width: 960px)
+       and (min-width: 650px) {
+    .cover__title {
+        margin-top:15%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+@media screen
+       and (max-width: 649px)
+       and (min-width: 376px) {
+    .cover__title {
+        margin-top:21%;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .cover__title {
+        margin-top:28%;
+    }
+}

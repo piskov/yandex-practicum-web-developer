@@ -17,17 +17,19 @@
                 text-content
                 text-content_size_normal">
         <header class="header
-                       root__header">
+                       root__header
+                       content
+                       content_padded">
             <a class="link"
                href="#"
                target="_blank"
                rel="noopener noreferrer">
-                <img src="images/logo.svg"
+                <img class="header__logo"
+                     src="images/logo.svg"
                      alt="Ссылка на проект «Россия»">
             </a>
             <ul class="language-picker
-                       text-subtitle
-                       text-subtitle_size_normal">
+                       text-language-picker">
                 <li class="language-picker__item
                            language-picker__item_is-current">
                     <a class="link
@@ -44,16 +46,18 @@
         <main>
             <section class="lead
                             root__lead">
-                <h1 class="lead__title
-                           text-title
-                           text-title_size_lead">
-                    Путешествия по России
-                </h1>
-                <p class="lead__subtitle
-                          text-subtitle
-                          text-subtitle_size_lead">
-                    Настоящая страна не в выпусках новостей, а здесь.
-                </p>
+                <div class="lead__heading-wrapper">
+                    <h1 class="lead__title
+                               text-title
+                               text-title_size_lead">
+                        Путешествия по России
+                    </h1>
+                    <p class="lead__subtitle
+                              text-subtitle
+                              text-subtitle_size_lead">
+                        Настоящая страна не в выпусках новостей, а здесь.
+                    </p>
+                </div>
                 <figure class="lead__image-wrapper">
                     <img class="lead__image"
                          src="images/polka.jpg"
@@ -68,16 +72,18 @@
             </section>
 
             <section class="intro
-                            root__intro">
+                            root__intro
+                            content
+                            content_padded">
                 <div class="intro__container">
                     <h2 class="intro__title
-                           text-title
-                           text-title_size_small">
+                               text-title
+                               text-title_size_small">
                         Чего мы там не видели?
                     </h2>
                     <p class="intro__main-text
-                          text-content
-                          text-content_size_small">
+                              text-content
+                              text-content_size_small">
                         По опросам ВЦИОМ, 95% россиян мечтают куда-нибудь поехать,
                         но только 36% планируют провести отпуск в родной стране.
                         Мол, чего мы тут, дома, не видели? На самом деле, Россия —
@@ -90,38 +96,38 @@
                         и описали некоторые интересные места, достойные вашего отпуска.
                     </p>
                     <ul class="intro__factoid
-                           text-factoid">
+                               text-factoid">
                         <li>
                             <span class="text-factoid
-                                     text-factoid_bold">
+                                         text-factoid_bold">
                                 Часовых поясов
                             </span>
                             11
                         </li>
                         <li>
                             <span class="text-factoid
-                                     text-factoid_bold">
+                                         text-factoid_bold">
                                 Объектов природного наследия ЮНЕСКО
                             </span>
                             12
                         </li>
                         <li>
                             <span class="text-factoid
-                                     text-factoid_bold">
+                                         text-factoid_bold">
                                 Объектов культурного наследия ЮНЕСКО
                             </span>
                             16
                         </li>
                         <li>
                             <span class="text-factoid
-                                     text-factoid_bold">
+                                         text-factoid_bold">
                                 Природных заповедников
                             </span>
                             105
                         </li>
                         <li>
                             <span class="text-factoid
-                                     text-factoid_bold">
+                                         text-factoid_bold">
                                 Аэропортов
                             </span>
                             241
@@ -131,7 +137,9 @@
             </section>
 
             <section class='photo-grid
-                            root__photo-grid'>
+                            root__photo-grid
+                            content
+                            content_padded'>
                 <img class="photo-grid__photo"
                      src="images/train.jpg"
                      alt="Фото из окна поезда: деревья, на заднем плане озеро">
@@ -174,7 +182,9 @@
             </section>
 
             <section class="places
-                            root__places">
+                            root__places
+                            content
+                            content_padded">
                 <div class="places__place">
                     <div class="places__row
                                 places__row_header">
@@ -444,7 +454,9 @@
             </section>
 
             <section class="video
-                            root__video">
+                            root__video
+                            content
+                            content_padded">
                 <h2 class="content-title
                            text-title
                            text-title_size_normal">
@@ -494,9 +506,9 @@
             </section>
 
             <section class="comments
-                            root__comments">
-                <!-- Дизайнер зачем-то взял сжатый интерлиньяж (буквы слипаются)
-                из-за этого немного съехал подзаголовок  -->
+                            root__comments
+                            content
+                            content_padded">
                 <h2 class="content-title
                            text-title
                            text-title_size_normal">
@@ -567,7 +579,7 @@
                    rel="noopener noreferrer">
                     <h2 class="cover__title
                                text-title
-                               text-title_size_normal">
+                               text-title_size_cover">
                         До Байкала «на собаках»
                     </h2>
                     <p class="cover__subtitle
@@ -581,9 +593,10 @@
         </main>
 
         <footer class="footer
-                       root__footer">
-            <nav class="text-subtitle
-                        text-subtitle_size_normal">
+                       root__footer
+                       content
+                       content_padded">
+            <nav class="text-footer">
                 <a class="footer__link
                           link"
                    href="https://yandex.ru/maps/"

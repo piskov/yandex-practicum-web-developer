@@ -1,3 +1,9 @@
 .root__lead {
-    margin: 50px auto 0px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 375px) {
+    .root__lead {
+        margin-top: 42px;
+    }
 }

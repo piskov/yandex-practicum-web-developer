@@ -5,3 +5,9 @@
 
     list-style: none;
 }
+
+@media screen and (max-width: 375px) {
+    .intro__factoid {
+        margin-top: 7px;
+    }
+}

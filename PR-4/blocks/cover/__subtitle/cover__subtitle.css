@@ -4,3 +4,19 @@
     max-width: 382px;
     text-align: center;
 }
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 376px) {
+    .cover__subtitle {
+        margin-bottom: 3.8%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .cover__subtitle {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 8%;
+    }
+}

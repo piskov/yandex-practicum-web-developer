@@ -11,13 +11,13 @@
        and (min-width: 769px) {
     .places__description {
         margin-left: 32px;
-        min-width: calc(50% - 32px);
+        min-width: calc(49% - 32px);
     }
 }
 
 @media screen
        and (max-width: 768px)
-       and (min-width: 701px) {
+       and (min-width: 712px) {
     .places__description {
         margin-left: 28px;
         min-width: calc(50% - 28px);
@@ -25,7 +25,7 @@
 }
 
 @media screen
-       and (max-width: 700px) {
+       and (max-width: 711px) {
     .places__description {
         margin-left: 0px;
         min-width: 50%;

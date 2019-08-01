@@ -1,0 +1,5 @@
+@import url('./_padded/content_padded.css');
+
+.root__content {
+    margin-bottom: 0px;
+}

@@ -1,11 +1,11 @@
-.text-subtitle_size_normal {
+.text-language-picker {
     font-size: 1.5rem;
     line-height: 1.46;
 }
 
 @media screen and (max-width: 767px) {
-    .text-subtitle_size_normal {
-        font-size: 1rem;
+    .text-language-picker {
+        font-size: 1.125rem;
         line-height: 1.44;
     }
 }

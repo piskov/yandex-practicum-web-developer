@@ -1,3 +1,19 @@
 .comments__quote {
     margin: 37px 0px 0px 0px;
 }
+
+@media screen
+       and (max-width: 768px)
+       and (min-width: 376px) {
+    .comments__quote {
+        margin-top: 19px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .comments__quote {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 23px;
+    }
+}
