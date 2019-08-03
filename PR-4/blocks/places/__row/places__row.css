@@ -1,0 +1,7 @@
+@import url('./_content/places__row_content.css');
+@import url('./_header/places__row_header.css');
+
+.places__row {
+    display: flex;
+    flex-wrap: wrap;
+}

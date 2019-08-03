@@ -1,0 +1,21 @@
+.text-title_size_normal {
+    font-size: 4.5rem;
+    line-height: 1.08;
+}
+
+
+@media screen
+       and (min-width: 768px)
+       and (max-width: 1023px) {
+    .text-title_size_normal  {
+        font-size: 2.63rem;
+        line-height: 1.1;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .text-title_size_normal  {
+        font-size: 2rem;
+        line-height: 1.09;
+    }
+}

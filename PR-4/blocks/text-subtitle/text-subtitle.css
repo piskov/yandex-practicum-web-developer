@@ -1,0 +1,7 @@
+@import url('./_size/text-subtitle_size_lead.css');
+@import url('./_size/text-subtitle_size_normal.css');
+@import url('./_size/text-subtitle_size_small.css');
+
+.text-subtitle {
+    font-weight: normal;
+}

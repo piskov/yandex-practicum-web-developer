@@ -1,0 +1,8 @@
+@import url('./__background/cover__background.css');
+@import url('./__item/cover__item.css');
+@import url('./__subtitle/cover__subtitle.css');
+@import url('./__title/cover__title.css');
+
+.cover {
+    position: relative;
+}

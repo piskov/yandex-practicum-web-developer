@@ -1,0 +1,11 @@
+.text-subtitle_size_small {
+    font-size: 1.13rem;
+    line-height: 1.44;
+}
+
+@media screen and (max-width: 767px) {
+    .text-subtitle_size_small {
+        font-size: 0.88rem;
+        line-height: 1.21;
+    }
+}

@@ -1,0 +1,25 @@
+@import url('./_type/video__icon_type_play.css');
+
+.video__icon {
+    margin: 30px 0px 0px 30px;
+
+    height: 41px;
+    width: 41px;
+
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+@media screen
+       and (max-width: 1023px)
+       and (min-width: 375px) {
+    .video__icon {
+        margin: 24px 0px 0px 24px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .video__icon  {
+        margin: 16px 0px 0px 16px;
+    }
+}

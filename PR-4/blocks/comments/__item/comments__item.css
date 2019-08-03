@@ -1,0 +1,15 @@
+.comments__item {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    .comments__item {
+         align-items: center;
+         max-width: 382px;
+    }
+
+    .comments__item :nth-child(2) {
+        order: 1;
+    }
+}

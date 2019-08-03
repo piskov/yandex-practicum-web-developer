@@ -1,0 +1,15 @@
+.card__placeholder {
+    position: absolute;
+    z-index: -1;
+
+    width: 100%;
+
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 1279px) {
+    .card__placeholder {
+        height: 100%;
+        width: unset;
+    }
+}

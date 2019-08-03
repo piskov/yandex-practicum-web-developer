@@ -1,0 +1,17 @@
+.places__link {
+    display: block;
+}
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 701px) {
+    .places__link {
+        margin-bottom: 2px;
+    }
+}
+
+@media screen and (max-width: 711px) {
+    .places__link {
+        display: none;
+    }
+}

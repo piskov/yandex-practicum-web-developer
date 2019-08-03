@@ -1,0 +1,20 @@
+.text-content_size_small {
+    font-size: 0.88rem;
+    line-height: 1.71;
+}
+
+@media screen
+       and (max-width: 1023px)
+       and (min-width: 376px) {
+    .text-content_size_small  {
+        font-size: 1rem;
+        line-height: 1.44;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .text-content_size_small {
+        font-size: 1rem;
+        line-height: 1.69;
+    }
+}
