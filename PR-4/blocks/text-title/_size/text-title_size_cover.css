@@ -1,0 +1,11 @@
+.text-title_size_cover {
+    font-size: 4.5rem;
+    line-height: 1.08;
+}
+
+@media screen and (max-width: 649px) {
+    .text-title_size_cover  {
+        font-size: 2rem;
+        line-height: 1.09;
+    }
+}

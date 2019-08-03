@@ -1,0 +1,19 @@
+.comments__author {
+    margin: 13px 0px 0px 0px;
+
+    font-weight: 900;
+}
+
+@media screen
+       and (max-width: 768px)
+       and (max-width: 376px) {
+    .comments__author {
+        margin-top: 13px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .comments__author {
+        margin-top: 11px;
+    }
+}

@@ -1,0 +1,10 @@
+.places__photo {
+    width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+    .places__photo {
+        width: 100vw;
+        margin-left: -1rem;
+    }
+}

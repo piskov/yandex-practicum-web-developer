@@ -1,0 +1,13 @@
+@import url('./_bold/text-factoid_bold.css');
+
+.text-factoid {
+    font-size: 0.81rem;
+    line-height: 1.54;
+}
+
+@media screen and (max-width: 767px) {
+    .text-factoid  {
+        font-size: 0.75rem;
+        line-height: 1.58;
+    }
+}

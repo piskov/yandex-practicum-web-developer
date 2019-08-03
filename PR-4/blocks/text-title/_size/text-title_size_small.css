@@ -1,0 +1,10 @@
+.text-title_size_small {
+    font-size: 3.38rem;
+    line-height: 1.09;
+}
+
+@media screen and (max-width: 767px) {
+    .text-title_size_small  {
+        font-size: 2rem;
+    }
+}

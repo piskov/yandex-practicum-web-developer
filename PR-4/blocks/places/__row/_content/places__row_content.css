@@ -1,0 +1,25 @@
+.places__row_content {
+    margin-top: 52px;
+}
+
+@media screen
+       and (max-width: 1024px)
+       and (min-width: 769px) {
+    .places__row_content {
+        margin-top: 47px;
+    }
+}
+
+@media screen
+       and (max-width: 768px)
+       and (min-width: 376px) {
+    .places__row_content {
+        margin-top: 47px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .places__row_content {
+        margin-top: 36px;
+    }
+}
