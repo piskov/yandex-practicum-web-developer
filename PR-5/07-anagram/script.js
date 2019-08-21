@@ -15,7 +15,8 @@ function anagram(str1, str2) {
         return;
     }
 
-    if (str1.length !== str2.length) {
+    if (str1.length !== str2.length
+        || str1.toLocaleLowerCase() === str2.toLocaleLowerCase()) {
         return false;
     }
 
@@ -25,13 +26,13 @@ function anagram(str1, str2) {
 
     const firstLetters =
         unique(str1.split('')
-                   .map(char => char.toLocaleLowerCase())
-                   .sort());
+            .map(char => char.toLocaleLowerCase())
+            .sort());
 
     const secondLetters =
         unique(str2.split('')
-                   .map(char => char.toLocaleLowerCase())
-                   .sort());
+            .map(char => char.toLocaleLowerCase())
+            .sort());
 
     return firstLetters.every((char, index) => char === secondLetters[index]);
 }
