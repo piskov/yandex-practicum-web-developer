@@ -29,23 +29,8 @@
         <button class="button user-info__button">+</button>
       </div>
     </div>
+
     <div class="places-list root__section">
-
-      <!-- Пример вёрстки карточки: -->
-
-      <div class="place-card">
-        <div class="place-card__image"
-             style="background-image: url(https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg)">
-          <button class="place-card__delete-icon"></button>
-        </div>
-        <div class="place-card__description">
-          <h3 class="place-card__name">Камчатка</h3>
-          <button class="place-card__like-icon"></button>
-        </div>
-      </div>
-
-      <!-- конец примера. -->
-
     </div>
     <div class="popup">
       <div class="popup__content">
@@ -63,7 +48,8 @@
                  name="link"
                  class="popup__input popup__input_type_link-url"
                  placeholder="Ссылка на картинку">
-          <button type
+          <button disabled
+                  type="submit"
                   class="button popup__button">+</button>
         </form>
       </div>

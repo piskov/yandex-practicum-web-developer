@@ -1,1 +1,229 @@
-console.log('Hello');
+'use strict';
+
+// # Fields #
+
+const _cardsContainer = document.querySelector('.places-list');
+const _closePopupButton = document.querySelector('.popup .popup__close');
+const _newPlaceButton = document.querySelector('.popup .popup__button');
+const _newPlaceForm = document.forms.new;
+const _newPlacePopup = document.querySelector('.popup');
+const _showPopupButton = document.querySelector('button.user-info__button');
+
+
+// # Main code #
+
+_cardsContainer.addEventListener('click', likeButton_Click);
+_cardsContainer.addEventListener('click', deleteCardButton_Click);
+_closePopupButton.addEventListener('click', closePopupButton_Click);
+_newPlaceForm.addEventListener('input', newPlaceForm_Input);
+_newPlaceForm.addEventListener('submit', newPlaceForm_Submit);
+_showPopupButton.addEventListener('click', showPopupButton_Click);
+
+const initialData = loadInitialData();
+createCardsFromJson(initialData);
+
+
+// # Event handlers #
+
+/**
+ * Closes popup window for adding new place.
+ */
+function closePopupButton_Click() {
+    resetFormAndClose();
+}
+
+/**
+ * Deletes card on “delete card” button click.
+ */
+function deleteCardButton_Click(event) {
+    if (!event.target.classList.contains('place-card__delete-icon')) {
+        return;
+    }
+
+    // deleteCardButton → photo → card
+    const cardToDelete = event.target.parentNode.parentNode;
+
+    cardToDelete.remove();
+}
+
+/**
+ * Toggles “like” for a place on “heart button” click.
+ */
+function likeButton_Click(event) {
+    if (!event.target.classList.contains('place-card__like-icon')) {
+        return;
+    }
+
+    event.target.classList.toggle('place-card__like-icon_liked');
+}
+
+/**
+ * Handles logic for text input change in the “New place” form.
+ */
+function newPlaceForm_Input() {
+    const placeName = _newPlaceForm.elements.name.value;
+    const placePhotoUrl = _newPlaceForm.elements.link.value;
+
+    if (placeName.length === 0
+        || placePhotoUrl.length === 0
+        || !placePhotoUrl.includes('//')) {
+        _newPlaceButton.setAttribute('disabled', true);
+    } else {
+        _newPlaceButton.removeAttribute('disabled');
+    }
+}
+
+/**
+ * Adds new place to the DOM.
+ */
+function newPlaceForm_Submit(event) {
+    event.preventDefault();
+
+    const placeName = _newPlaceForm.elements.name.value;
+    const placePhotoUrl = _newPlaceForm.elements.link.value;
+
+    const card = createCardElement(placeName, placePhotoUrl);
+    _cardsContainer.append(card);
+
+    resetFormAndClose();
+}
+
+/**
+ * Shows popup window for adding new place.
+ */
+function showPopupButton_Click() {
+    _newPlacePopup.classList.add('popup_is-opened');
+}
+
+
+// # Functions #
+
+/**
+ * Creates HTML for a new card.
+ *
+ * @param name {String}
+ * Name of the place to be shown on the card.
+ *
+ * @param imageLink {String}
+ * Link to the place photo to be shown as card background.
+ *
+ * @returns {HTMLDivElement} New card ready to be inserted into the DOM.
+ */
+function createCardElement(name, imageLink) {
+    /*
+     Card layout:
+     |- photo
+     |  |- deleteCardButton
+     |
+     |- descriptionWrapper
+        |- placeName
+        |- likeButton
+
+    */
+
+    // Init all of the elements above
+
+    const photo = document.createElement('div');
+    photo.classList.add('place-card__image');
+    photo.style.backgroundImage = `url(${imageLink})`;
+
+    const deleteCardButton = document.createElement('button');
+    deleteCardButton.classList.add('place-card__delete-icon');
+
+    const descriptionWrapper = document.createElement('div');
+    descriptionWrapper.classList.add('place-card__description');
+
+    const placeName = document.createElement('h3');
+    placeName.classList.add('place-card__name');
+    placeName.textContent = name;
+
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('place-card__like-icon');
+
+    const card = document.createElement('div');
+    card.classList.add('place-card');
+
+
+    // Stitch items together
+
+    card.append(photo);
+    photo.append(deleteCardButton);
+
+    card.append(descriptionWrapper);
+    descriptionWrapper.append(placeName);
+    descriptionWrapper.append(likeButton);
+
+    return card;
+}
+
+/**
+ * Creates cards from the data and adds them to the DOM.
+ *
+ * @param jsonData {[Object.<string, string>]}
+ * Collection of places names and links to photos.
+ */
+function createCardsFromJson(jsonData) {
+    for (let item of jsonData) {
+        const card = createCardElement(item.name, item.link);
+        _cardsContainer.append(card);
+    }
+}
+
+/**
+ * Imitates loading cards data from the server.
+ *
+ * @returns {[Object.<string, string>]}
+ * Collection of places names and links to photos.
+ */
+function loadInitialData() {
+    return [
+        {
+            name: 'Архыз',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+        },
+        {
+            name: 'Челябинская область',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+        },
+        {
+            name: 'Иваново',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+        },
+        {
+            name: 'Камчатка',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+        },
+        {
+            name: 'Холмогорский район',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+        },
+        {
+            name: 'Байкал',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+        },
+        {
+            name: 'Нургуш',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/khrebet-nurgush.jpg'
+        },
+        {
+            name: 'Тулиновка',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/tulinovka.jpg'
+        },
+        {
+            name: 'Остров Желтухина',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/zheltukhin-island.jpg'
+        },
+        {
+            name: 'Владивосток',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/vladivostok.jpg'
+        }
+    ];
+}
+
+/**
+ * Reset form inputs and hides the popup.
+ */
+function resetFormAndClose() {
+    _newPlaceForm.reset();
+    _newPlacePopup.classList.remove('popup_is-opened');
+}
