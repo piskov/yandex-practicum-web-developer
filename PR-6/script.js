@@ -12,8 +12,7 @@ const _showPopupButton = document.querySelector('button.user-info__button');
 
 // # Main code #
 
-_cardsContainer.addEventListener('click', likeButton_Click);
-_cardsContainer.addEventListener('click', deleteCardButton_Click);
+_cardsContainer.addEventListener('click', cardsContainer_Click);
 _closePopupButton.addEventListener('click', closePopupButton_Click);
 _newPlaceForm.addEventListener('input', newPlaceForm_Input);
 _newPlaceForm.addEventListener('submit', newPlaceForm_Submit);
@@ -26,35 +25,29 @@ createCardsFromJson(initialData);
 // # Event handlers #
 
 /**
+ * Handle clicks on cards
+ */
+function cardsContainer_Click(event) {
+    // “delete card” button click
+    if (event.target.classList.contains('place-card__delete-icon')) {
+        // deleteCardButton → photo → card
+        const cardToDelete = event.target.parentNode.parentNode;
+        cardToDelete.remove();
+        return;
+    }
+
+    // “like” button click
+    if (event.target.classList.contains('place-card__like-icon')) {
+        event.target.classList.toggle('place-card__like-icon_liked');
+        return;
+    }
+}
+
+/**
  * Closes popup window for adding new place.
  */
 function closePopupButton_Click() {
     resetFormAndClose();
-}
-
-/**
- * Deletes card on “delete card” button click.
- */
-function deleteCardButton_Click(event) {
-    if (!event.target.classList.contains('place-card__delete-icon')) {
-        return;
-    }
-
-    // deleteCardButton → photo → card
-    const cardToDelete = event.target.parentNode.parentNode;
-
-    cardToDelete.remove();
-}
-
-/**
- * Toggles “like” for a place on “heart button” click.
- */
-function likeButton_Click(event) {
-    if (!event.target.classList.contains('place-card__like-icon')) {
-        return;
-    }
-
-    event.target.classList.toggle('place-card__like-icon_liked');
 }
 
 /**
@@ -65,8 +58,7 @@ function newPlaceForm_Input() {
     const placePhotoUrl = _newPlaceForm.elements.link.value;
 
     if (placeName.length === 0
-        || placePhotoUrl.length === 0
-        || !placePhotoUrl.includes('//')) {
+        || placePhotoUrl.length === 0) {
         _newPlaceButton.setAttribute('disabled', true);
     } else {
         _newPlaceButton.removeAttribute('disabled');
