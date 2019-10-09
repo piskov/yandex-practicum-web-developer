@@ -2,13 +2,16 @@
   background-color: transparent;
   border: 1px solid white;
   color: white;
-  width: 150px;
-  height: 50px;
-  font-size: 30px;
-  display: block;
   cursor: pointer;
 }
 
 .button:focus {
   outline-color: greenyellow;
+}
+
+
+.button:hover {
+  background-color: white;
+  color: black;
+  transition: ease-out 0.2s;
 }

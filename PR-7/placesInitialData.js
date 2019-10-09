@@ -4,7 +4,7 @@
  * Imitates loading cards data from the server.
  *
  * @returns {[Object.<string, string>]}
- * Collection of places names and links to photos.
+ * Collection of places’ 1) names; 2) links to photos.
  */
 function loadInitialData() {
     return [
