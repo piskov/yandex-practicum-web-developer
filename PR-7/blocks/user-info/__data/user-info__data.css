@@ -1,0 +1,13 @@
+.user-info__data {
+  margin-left: 36px;
+  margin-right: 36px;
+
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 980px) {
+  .user-info__data {
+    margin: 20px 0;
+    text-align: center;
+  }
+}
