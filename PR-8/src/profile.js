@@ -1,27 +1,26 @@
-'use strict';
+﻿'use strict';
 
 (function () {
     // # ------ Fields ------ #
 
-    const _form = document.forms.editProfile;
+    const _editProfileForm = document.forms.editProfile;
+    const _formValidator = new FormValidator(_editProfileForm);
 
-    const _aboutField = _form.elements.userDescription;
-    const _nameField = _form.elements.userName;
+    const _aboutField = _editProfileForm.elements.userDescription;
+    const _nameField = _editProfileForm.elements.userName;
 
     const _aboutLabel = document.querySelector('.user-info__job');
     const _nameLabel = document.querySelector('.user-info__name');
 
-    const _popup = initPopup('edit-profile-popup');
+    const _popup = new Popup(document.getElementById('edit-profile-popup'));
 
     const _showPopupButton =
         document.querySelector('button.user-info__button_type_edit-profile');
 
-    const _validationHelper = initValidation(_form, _popup.submitButton);
-
 
     // # ------ Main code ------ #
 
-    _form.addEventListener('submit', form_Submit);
+    _editProfileForm.addEventListener('submit', editProfileForm_Submit);
     _showPopupButton.addEventListener('click', showPopupButton_Click);
 
 
@@ -30,7 +29,7 @@
     /**
      * Saves user details.
      */
-    function form_Submit(event) {
+    function editProfileForm_Submit(event) {
         event.preventDefault();
 
         _aboutLabel.textContent = _aboutField.value;
@@ -46,7 +45,7 @@
         _aboutField.value = _aboutLabel.textContent;
         _nameField.value = _nameLabel.textContent;
 
-        _validationHelper.resetErrors();
+        _formValidator.resetErrors();
 
         _popup.show();
     }
