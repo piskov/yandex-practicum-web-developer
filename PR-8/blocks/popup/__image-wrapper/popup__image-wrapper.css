@@ -1,0 +1,12 @@
+.popup__image-wrapper {
+    max-height: 80vh;
+    max-width: 80vw;
+
+    padding: 5px;
+
+    display: flex;
+    position: relative;
+
+    align-items: center;
+    box-sizing: border-box;
+}
