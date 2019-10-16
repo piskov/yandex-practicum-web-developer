@@ -56,15 +56,16 @@ let PlacesRepositoryModel = (function () {
      * @private
      */
     function _parsePlacesFromJson(jsonData) {
-        if (jsonData === undefined
-            || jsonData.length === 0) {
-            return;
-        }
-
         const places = [];
 
+        if (jsonData === undefined
+            || jsonData.length === 0) {
+            return places;
+        }
+
         for (let item of jsonData) {
-            places.push(new PlaceModel(item));
+            const {name, link, _id} = item;
+            places.push(new PlaceModel(name, link, _id));
         }
 
         return places;

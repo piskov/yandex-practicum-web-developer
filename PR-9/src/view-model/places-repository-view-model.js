@@ -68,7 +68,7 @@ let PlacesRepositoryViewModel = (function () {
         const placeName = _addPlaceForm.elements.placeName.value;
         const placePhotoUrl = _addPlaceForm.elements.placeUrl.value;
 
-        const place = new PlaceModel(placeName, placePhotoUrl);
+        const place = new PlaceModel(placeName, placePhotoUrl, 1);
         this._model.addPlace(place);
         _addPlace(place);
 

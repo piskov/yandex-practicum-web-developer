@@ -13,12 +13,12 @@ class PlaceModel {
      * @param {string} link
      * Link to the place‘s photo to be shown as a card background.
 
-     * @param {string} _id
+     * @param {string} id
      * Place id.
      */
-    constructor({name, link, _id}) {
+    constructor(name, link, id) {
         this.name = name;
         this.link = link;
-        this._id = _id;
+        this._id = id;
     }
 }
