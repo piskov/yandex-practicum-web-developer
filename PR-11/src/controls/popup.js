@@ -1,9 +1,7 @@
-﻿﻿'use strict';
-
-/**
+﻿﻿/**
  * Describes a popup.
  */
-class Popup {
+export class Popup {
     /**
      * Inits a new popup.
      * @param {Element} popupElement - DOM container for a popup.

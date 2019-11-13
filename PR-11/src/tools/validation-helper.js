@@ -1,11 +1,9 @@
-﻿﻿﻿﻿'use strict';
-
-/**
+﻿﻿/**
  * Enables or disables a button.
  * @param {Element} button - Button reference.
  * @param {Boolean} isEnabled - Availability state.
  */
-function changeButtonState(button, isEnabled) {
+export function changeButtonState(button, isEnabled) {
     if (button === null) {
         return;
     }
@@ -23,7 +21,7 @@ function changeButtonState(button, isEnabled) {
  * @param {String} inputName - Name of the input control in the form.
  * @returns {String} Span id for error message.
  */
-function getErrorElementId(formName, inputName) {
+export function getErrorElementId(formName, inputName) {
     return `error-${formName}-${inputName}`;
 }
 
@@ -32,7 +30,7 @@ function getErrorElementId(formName, inputName) {
  * @param {ValidityState} validationResult - Validation state.
  * @return {String} - Error message.
  */
-function getErrorMessage(validationResult) {
+export function getErrorMessage(validationResult) {
     if (validationResult === undefined) {
         return undefined;
     }
@@ -55,7 +53,7 @@ function getErrorMessage(validationResult) {
  * @param {String} errorMessage - Error text to display.
  * @param {String} errorElementId - Span id to show the error in.
  */
-function showError(errorMessage, errorElementId) {
+export function showError(errorMessage, errorElementId) {
     if (errorElementId === null
         || errorElementId === "") {
         return;

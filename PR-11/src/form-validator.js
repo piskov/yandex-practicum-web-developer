@@ -1,9 +1,9 @@
-﻿﻿﻿'use strict';
+﻿﻿import * as ValidationHelper from './tools/validation-helper.js';
 
 /**
  * Describes a form validator object.
  */
-class FormValidator {
+export class FormValidator {
     /**
      * Inits a validator for the form.
      * @param {HTMLFormElement} form - Form to validate.
@@ -33,8 +33,10 @@ class FormValidator {
      */
     resetErrors() {
         for (let input of this.inputs) {
-            const errorSpanId = getErrorElementId(this.form.name, input.name);
-            showError('', errorSpanId);
+            const errorSpanId =
+                ValidationHelper.getErrorElementId(this.form.name, input.name);
+
+            ValidationHelper.showError('', errorSpanId);
         }
 
         this.updateSubmitButtonState();
@@ -57,7 +59,7 @@ class FormValidator {
             }
         }
 
-        changeButtonState(this.submitButton, isFormValid);
+        ValidationHelper.changeButtonState(this.submitButton, isFormValid);
     }
 
     /**
@@ -72,9 +74,11 @@ class FormValidator {
 
         const validationResult = input.validity;
 
-        const errorSpanId = getErrorElementId(this.form.name, input.name);
-        const errorMessage = getErrorMessage(validationResult);
-        showError(errorMessage, errorSpanId);
+        const errorSpanId =
+            ValidationHelper.getErrorElementId(this.form.name, input.name);
+
+        const errorMessage = ValidationHelper.getErrorMessage(validationResult);
+        ValidationHelper.showError(errorMessage, errorSpanId);
 
         this.updateSubmitButtonState();
     }
