@@ -15,3 +15,7 @@ You can check the live version at [github pages](https://piskov.github.io/yandex
 Project contains two usual build configurations:
 - `npm run dev` for local debug
 - `npm run build` for production build
+
+Latest version `0.1.0`:
+- moved to webpack
+- rewrite to js modules
