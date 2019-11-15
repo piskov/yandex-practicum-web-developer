@@ -11,3 +11,7 @@ For PR-1…10 no additional tools are required (no sass, npm, etc.) — just op
 PR-11 is a simple instagram-like client for Places API. You’ll need NPM and IDE to use it.
 
 You can check the live version at [github pages](https://piskov.github.io/yandex-web-developer/PR-11/)
+
+Project contains two usual build configurations:
+- `npm run dev` for local debug
+- `npm run build` for production build
