@@ -9,30 +9,15 @@
           content="ie=edge">
     <title>Mesto</title>
     <link rel="stylesheet"
-          href="./pages/index.css">
-    <script src="src/controls/popup.js" defer></script>
-    <script src="src/controls/image-popup.js" defer></script>
-
-    <script src="src/tools/validation-helper.js" defer></script>
-
-    <script src="src/api.js" defer></script>
-    <script src="src/form-validator.js" defer></script>
-
-    <script src="src/model/place-model.js" defer></script>
-    <script src="src/model/places-repository-model.js" defer></script>
-    <script src="src/model/user-model.js" defer></script>
-
-    <script src="src/view-model/place-view-model.js" defer></script>
-    <script src="src/view-model/places-repository-view-model.js" defer></script>
-    <script src="src/view-model/user-view-model.js" defer></script>
-
-    <script src="src/main.js" defer></script>
+          href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+    <script type="module"
+            src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </head>
 
 <body>
     <div class="root">
         <header class="header root__section">
-            <img src="./images/logo.svg"
+            <img src="<%=require('./images/logo.svg')%>"
                  alt="mesto logo"
                  class="logo">
         </header>
@@ -61,7 +46,7 @@
         <div id="new-place-popup"
              class="popup">
             <div class="popup__content">
-                <img src="./images/close.svg"
+                <img src="<%=require('./images/close.svg')%>"
                      alt="Кнопка закрыть"
                      class="popup__close">
 
@@ -108,7 +93,7 @@
         <div id="edit-profile-popup"
              class="popup">
             <div class="popup__content">
-                <img src="./images/close.svg"
+                <img src="<%=require('./images/close.svg')%>"
                      alt="Кнопка закрыть"
                      class="popup__close">
 
@@ -157,7 +142,7 @@
         <div id="view-place-popup"
              class="popup">
             <div class="popup__image-wrapper">
-                <img src="./images/close.svg"
+                <img src="<%=require('./images/close.svg')%>"
                      alt="Кнопка закрыть"
                      class="popup__close">
                 <img class="popup__image"

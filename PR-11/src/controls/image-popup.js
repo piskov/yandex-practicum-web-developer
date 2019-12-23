@@ -1,9 +1,9 @@
-﻿﻿'use strict';
+﻿﻿import { Popup } from './popup.js';
 
 /**
  * Describes a popup with an image.
  */
-class ImagePopup extends Popup {
+export class ImagePopup extends Popup {
     /**
      * Inits new image popup.
      * @param {Element} popupElement - DOM container for a popup.

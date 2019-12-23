@@ -1,9 +1,7 @@
-﻿'use strict';
-
-/**
+﻿/**
  * Describes a card for a Place.
  */
-class PlaceModel {
+export class PlaceModel {
     /**
      * Inits a new place card.
      *
