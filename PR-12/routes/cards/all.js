@@ -1,3 +1,3 @@
-const responseHelper = require('../../utils/responseFromData');
+const responseFromData = require('../../utils/responseFromData');
 
-module.exports = responseHelper('cards.json');
+module.exports = responseFromData('cards.json');
