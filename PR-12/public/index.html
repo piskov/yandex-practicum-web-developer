@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Mesto</title>
+    <link rel="stylesheet"
+          href="style.487d81eba30af0a23667.css">
+    <script type="module"
+            src="main.be653b2ae2a6d8b30ec0.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <header class="header root__section">
+            <img src="./images/logo.svg"
+                 alt="mesto logo"
+                 class="logo">
+        </header>
+        <div class="profile root__section">
+            <div class="user-info">
+                <div class="user-info__photo"></div>
+                <div class="user-info__data">
+                    <h1 class="user-info__name">Загрузка…</h1>
+                    <p class="user-info__job">…</p>
+                    <button class="button
+                                   user-info__button_type_edit-profile">
+                        Edit
+                    </button>
+                </div>
+
+                <button class="button
+                               user-info__button_type_new-place">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <div class="places-list root__section">
+        </div>
+
+        <div id="new-place-popup"
+             class="popup">
+            <div class="popup__content">
+                <img src="./images/close.svg"
+                     alt="Кнопка закрыть"
+                     class="popup__close">
+
+                <h3 class="popup__title">Новое место</h3>
+
+                <form class="popup__form"
+                      name="newPlace"
+                      novalidate>
+                    <label class="popup__input-wrapper"
+                           for="placeName">
+                        <input type="text"
+                               name="placeName"
+                               class="popup__input popup__input_type_name"
+                               placeholder="Название"
+                               required
+                               minlength="2"
+                               maxlength="30">
+                        <span class="popup__error-message"
+                              id="error-newPlace-placeName"
+                              aria-live="polite"></span>
+                    </label>
+
+                    <label class="popup__input-wrapper"
+                           for="placeUrl">
+                        <input type="url"
+                               name="placeUrl"
+                               class="popup__input popup__input_type_link-url"
+                               placeholder="Ссылка на картинку"
+                               required>
+                        <span class="popup__error-message"
+                              id="error-newPlace-placeUrl"
+                              aria-live="polite"></span>
+                    </label>
+
+                    <button disabled
+                            type="submit"
+                            class="button
+                                   popup__button
+                                   popup__button_size_symbol">+</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="edit-profile-popup"
+             class="popup">
+            <div class="popup__content">
+                <img src="./images/close.svg"
+                     alt="Кнопка закрыть"
+                     class="popup__close">
+
+                <h3 class="popup__title">Редактировать профиль</h3>
+
+                <form class="popup__form"
+                      name="editProfile"
+                      novalidate>
+                    <label class="popup__input-wrapper"
+                           for="userName">
+                        <input type="text"
+                               name="userName"
+                               class="popup__input popup__input_type_name"
+                               placeholder="Имя"
+                               required
+                               minlength="2"
+                               maxlength="30">
+                        <span class="popup__error-message"
+                              id="error-editProfile-userName"
+                              aria-live="polite"></span>
+                    </label>
+
+                    <label class="popup__input-wrapper"
+                           for="userDescription">
+                        <input type="text"
+                               name="userDescription"
+                               class="popup__input popup__input_type_link-url"
+                               placeholder="О себе"
+                               required
+                               minlength="2"
+                               maxlength="30">
+                        <span class="popup__error-message"
+                              id="error-editProfile-userDescription"
+                              aria-live="polite"></span>
+                    </label>
+
+                    <button disabled
+                            type="submit"
+                            class="button
+                                   popup__button
+                                   popup__button_size_text">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="view-place-popup"
+             class="popup">
+            <div class="popup__image-wrapper">
+                <img src="./images/close.svg"
+                     alt="Кнопка закрыть"
+                     class="popup__close">
+                <img class="popup__image"
+                     alt="Фотография места"
+                     src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
