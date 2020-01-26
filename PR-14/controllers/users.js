@@ -1,14 +1,22 @@
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const { ObjectId } = require('mongoose').Types;
+
+const { getJwtSecret } = require('../tools/getJwtSecret');
+const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
 const User = require('../models/user');
 
+
 module.exports.createUser = (request, response) => {
-  if (Object.keys(request.body).length === 0) {
-    response.status(400).send({ message: 'Пустое тело запроса' });
+  if (sendBadRequestForEmptyBody(request, response)) {
     return;
   }
 
-  const { name, about, avatar } = request.body;
-  const userModel = new User({ name, about, avatar });
+  // eslint-disable-next-line object-curly-newline
+  const { name, about, avatar, email, password } = request.body;
+
+  // eslint-disable-next-line object-curly-newline
+  const userModel = new User({ name, about, avatar, email, password });
 
   const validationErrors = userModel.validateSync();
   if (validationErrors) {
@@ -19,7 +27,11 @@ module.exports.createUser = (request, response) => {
     return;
   }
 
-  User.create(userModel)
+  bcrypt.hash(userModel.password, 10)
+    .then((hash) => {
+      userModel.password = hash;
+      User.create(userModel);
+    })
     .then((user) => response.send({ data: user }))
     .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
 };
@@ -53,4 +65,32 @@ module.exports.getUsers = (request, response) => {
   User.find({})
     .then((users) => response.send({ data: users }))
     .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+};
+
+module.exports.login = (request, response) => {
+  if (sendBadRequestForEmptyBody(request, response)) {
+    return;
+  }
+
+  const { email, password } = request.body;
+
+  User.findUserByCredentials(email, password)
+    .then((user) => {
+      const token = jwt.sign(
+        { _id: user._id },
+        getJwtSecret(),
+        { expiresIn: '7d' },
+      );
+
+      response
+        .cookie('token', token, {
+          maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
+          httpOnly: true,
+          sameSite: true,
+        })
+        .end();
+    })
+    .catch((error) => {
+      response.status(401).send({ message: error.message });
+    });
 };

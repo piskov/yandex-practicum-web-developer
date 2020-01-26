@@ -9,6 +9,7 @@ lib
 .vscode/
 .idea/
 *.min.js
+.env
 # Logs
 logs
 *.log

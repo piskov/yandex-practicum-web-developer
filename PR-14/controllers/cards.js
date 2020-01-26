@@ -1,9 +1,11 @@
 const { ObjectId } = require('mongoose').Types;
+
 const Card = require('../models/card');
+const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
+
 
 module.exports.createCard = (request, response) => {
-  if (Object.keys(request.body).length === 0) {
-    response.status(400).send({ message: 'Пустое тело запроса' });
+  if (sendBadRequestForEmptyBody(request, response)) {
     return;
   }
 
@@ -39,14 +41,34 @@ module.exports.deleteCard = (request, response) => {
     return;
   }
 
-  Card.findByIdAndDelete(cardId)
+  Card.findById(cardId)
     .then((card) => {
       if (card === null) {
-        return response.status(404)
-          .json({ message: 'Нет карточки с таким id' });
+        response.status(404).send({ message: 'Нет карточки с таким id' });
+        return false;
       }
 
-      return response.json({ data: card });
+      if (card.owner.toString() !== request.user._id) {
+        response.status(401).send({ message: 'Карточка вам не принадлежит' });
+        return false;
+      }
+
+      return true;
+    })
+    .then((shouldDeleteCard) => {
+      if (!shouldDeleteCard) {
+        return;
+      }
+
+      Card.findByIdAndDelete(cardId)
+        .then((card) => {
+          if (card === null) {
+            return response.status(404)
+              .json({ message: 'Нет карточки с таким id' });
+          }
+
+          return response.json({ data: card });
+        });
     })
     .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
 };

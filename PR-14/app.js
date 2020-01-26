@@ -1,7 +1,14 @@
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+
+const { createUser, login } = require('./controllers/users');
+const auth = require('./middlewares/auth');
 const routes = require('./routes');
+
+
+require('dotenv').config();
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
@@ -14,13 +21,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  req.user = {
-    _id: '5e076bb665f3071f98df1b35',
-  };
+app.use(cookieParser());
 
-  next();
-});
+app.post('/signin', login);
+app.post('/signup', createUser);
+
+app.use(auth);
 
 app.use('/', routes);
 
