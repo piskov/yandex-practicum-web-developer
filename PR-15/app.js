@@ -4,6 +4,8 @@ const express = require('express');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 
+const NotFoundError = require('./errors/notFoundError');
+
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const routes = require('./routes');
@@ -34,8 +36,19 @@ app.use(auth);
 
 app.use('/', routes);
 
-app.use((req, res) => {
-  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
+app.use((request, response, next) => {
+  next(new NotFoundError('Запрашиваемый ресурс не найден'));
+});
+
+app.use((error, request, response, next) => {
+  const { statusCode = 500 } = error;
+  let { message } = error;
+
+  if (statusCode === 500) {
+    message = 'На сервере произошла ошибка';
+  }
+
+  response.status(statusCode).send({ message });
 });
 
 const { PORT = 3000 } = process.env;

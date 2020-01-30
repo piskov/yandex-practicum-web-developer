@@ -1,8 +1,10 @@
-module.exports.sendBadRequestForEmptyBody = (request, response) => {
+const BadRequestError = require('../errors/badRequestError');
+
+module.exports.sendBadRequestForEmptyBody = (request, response, next) => {
   if (Object.keys(request.body).length !== 0) {
     return false;
   }
 
-  response.status(400).send({ message: 'Пустое тело запроса' });
+  next(new BadRequestError('Пустое тело запроса'));
   return true;
 };

@@ -2,12 +2,16 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { ObjectId } = require('mongoose').Types;
 
-const { getJwtSecret } = require('../tools/getJwtSecret');
-const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
 const User = require('../models/user');
 
+const BadRequestError = require('../errors/badRequestError');
+const NotFoundError = require('../errors/notFoundError');
 
-module.exports.createUser = (request, response) => {
+const { getJwtSecret } = require('../tools/getJwtSecret');
+const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
+
+
+module.exports.createUser = (request, response, next) => {
   if (sendBadRequestForEmptyBody(request, response)) {
     return;
   }
@@ -33,41 +37,40 @@ module.exports.createUser = (request, response) => {
       User.create(userModel);
     })
     .then((user) => response.send({ data: user }))
-    .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+    .catch(next);
 };
 
-module.exports.getUserById = (request, response) => {
+module.exports.getUserById = (request, response, next) => {
   const userId = request.params.id;
 
   if (userId === undefined) {
-    response.status(400).send({ message: 'Не указан id пользователя' });
+    next(new BadRequestError('Не указан id пользователя'));
     return;
   }
 
   if (!ObjectId.isValid(userId)) {
-    response.status(400).send({ message: 'Неверный id пользователя' });
+    next(new BadRequestError('Неверный id пользователя'));
     return;
   }
 
   User.findById(userId)
     .then((user) => {
       if (user === null) {
-        return response.status(404)
-          .json({ message: 'Нет пользователя с таким id' });
+        throw new NotFoundError('Нет пользователя с таким id');
       }
 
       return response.json({ data: user });
     })
-    .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+    .catch(next);
 };
 
-module.exports.getUsers = (request, response) => {
+module.exports.getUsers = (request, response, next) => {
   User.find({})
     .then((users) => response.send({ data: users }))
-    .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+    .catch(next);
 };
 
-module.exports.login = (request, response) => {
+module.exports.login = (request, response, next) => {
   if (sendBadRequestForEmptyBody(request, response)) {
     return;
   }
@@ -90,7 +93,5 @@ module.exports.login = (request, response) => {
         })
         .end();
     })
-    .catch((error) => {
-      response.status(401).send({ message: error.message });
-    });
+    .catch(next);
 };

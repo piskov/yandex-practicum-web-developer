@@ -1,11 +1,16 @@
 const { ObjectId } = require('mongoose').Types;
 
 const Card = require('../models/card');
+
+const BadRequestError = require('../errors/badRequestError');
+const NotFoundError = require('../errors/notFoundError');
+const UnauthorizedError = require('../errors/unauthorizedError');
+
 const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
 
 
-module.exports.createCard = (request, response) => {
-  if (sendBadRequestForEmptyBody(request, response)) {
+module.exports.createCard = (request, response, next) => {
+  if (sendBadRequestForEmptyBody(request, response, next)) {
     return;
   }
 
@@ -25,57 +30,48 @@ module.exports.createCard = (request, response) => {
 
   Card.create(cardModel)
     .then((card) => response.send({ data: card }))
-    .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+    .catch(next);
 };
 
-module.exports.deleteCard = (request, response) => {
+module.exports.deleteCard = (request, response, next) => {
   const { cardId } = request.params;
 
   if (cardId === undefined) {
-    response.status(400).send({ message: 'Не указан id карточки' });
+    next(new BadRequestError('Не указан id карточки'));
     return;
   }
 
   if (!ObjectId.isValid(cardId)) {
-    response.status(400).send({ message: 'Неверный id карточки' });
+    next(new BadRequestError('Неверный id карточки'));
     return;
   }
 
   Card.findById(cardId)
     .then((card) => {
       if (card === null) {
-        response.status(404).send({ message: 'Нет карточки с таким id' });
-        return false;
+        throw new NotFoundError('Нет карточки с таким id');
       }
 
       if (card.owner.toString() !== request.user._id) {
-        response.status(401).send({ message: 'Карточка вам не принадлежит' });
-        return false;
+        throw new UnauthorizedError('Карточка вам не принадлежит');
       }
-
-      return true;
     })
-    .then((shouldDeleteCard) => {
-      if (!shouldDeleteCard) {
-        return;
-      }
-
+    .then(() => {
       Card.findByIdAndDelete(cardId)
         .then((card) => {
           if (card === null) {
-            return response.status(404)
-              .json({ message: 'Нет карточки с таким id' });
+            throw new NotFoundError('Нет карточки с таким id');
           }
 
           return response.json({ data: card });
         });
     })
-    .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+    .catch(next);
 };
 
-module.exports.getCards = (request, response) => {
+module.exports.getCards = (request, response, next) => {
   Card.find({})
     .populate(['owner', 'likes'])
     .then((cards) => response.send({ data: cards }))
-    .catch(() => response.status(500).send({ message: 'Произошла ошибка' }));
+    .catch(next);
 };
