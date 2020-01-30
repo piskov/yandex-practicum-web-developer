@@ -9,6 +9,7 @@ const NotFoundError = require('./errors/notFoundError');
 
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
+const { errorLogger, requestLogger } = require('./middlewares/logger');
 const routes = require('./routes');
 
 
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
+app.use(requestLogger);
 
 app.post('/signin',
   celebrate({
@@ -58,6 +60,8 @@ app.use('/', routes);
 app.use((request, response, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
 });
+
+app.use(errorLogger);
 
 // celebrate errors
 app.use(errors());
