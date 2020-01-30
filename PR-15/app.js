@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const { celebrate, errors, Joi } = require('celebrate');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const helmet = require('helmet');
@@ -29,17 +30,39 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
-app.post('/signin', login);
-app.post('/signup', createUser);
+app.post('/signin',
+  celebrate({
+    body: Joi.object().keys({
+      email: Joi.string().required().min(3).max(254),
+      password: Joi.string().required().min(8).max(2048),
+    }),
+  }),
+  login);
+
+app.post('/signup',
+  celebrate({
+    body: Joi.object().keys({
+      name: Joi.string().required().min(2).max(30),
+      about: Joi.string().required().min(2).max(30),
+      avatar: Joi.string().required().min(3).max(2048),
+      email: Joi.string().required().min(3).max(254),
+      password: Joi.string().required().min(8).max(2048),
+    }),
+  }),
+  createUser);
 
 app.use(auth);
-
 app.use('/', routes);
 
+// 404
 app.use((request, response, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
 });
 
+// celebrate errors
+app.use(errors());
+
+// any other errors
 app.use((error, request, response, next) => {
   const { statusCode = 500 } = error;
   let { message } = error;

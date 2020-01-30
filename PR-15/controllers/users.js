@@ -8,14 +8,9 @@ const BadRequestError = require('../errors/badRequestError');
 const NotFoundError = require('../errors/notFoundError');
 
 const { getJwtSecret } = require('../tools/getJwtSecret');
-const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
 
 
 module.exports.createUser = (request, response, next) => {
-  if (sendBadRequestForEmptyBody(request, response)) {
-    return;
-  }
-
   // eslint-disable-next-line object-curly-newline
   const { name, about, avatar, email, password } = request.body;
 
@@ -27,7 +22,7 @@ module.exports.createUser = (request, response, next) => {
     const errorMessage = Object.values(validationErrors.errors)
       .map((error) => error.message);
 
-    response.status(400).send({ errors: errorMessage });
+    next(new BadRequestError(errorMessage));
     return;
   }
 
@@ -42,11 +37,6 @@ module.exports.createUser = (request, response, next) => {
 
 module.exports.getUserById = (request, response, next) => {
   const userId = request.params.id;
-
-  if (userId === undefined) {
-    next(new BadRequestError('Не указан id пользователя'));
-    return;
-  }
 
   if (!ObjectId.isValid(userId)) {
     next(new BadRequestError('Неверный id пользователя'));
@@ -71,10 +61,6 @@ module.exports.getUsers = (request, response, next) => {
 };
 
 module.exports.login = (request, response, next) => {
-  if (sendBadRequestForEmptyBody(request, response)) {
-    return;
-  }
-
   const { email, password } = request.body;
 
   User.findUserByCredentials(email, password)

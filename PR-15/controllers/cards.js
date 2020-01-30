@@ -6,14 +6,8 @@ const BadRequestError = require('../errors/badRequestError');
 const NotFoundError = require('../errors/notFoundError');
 const UnauthorizedError = require('../errors/unauthorizedError');
 
-const { sendBadRequestForEmptyBody } = require('../tools/responseHelper');
-
 
 module.exports.createCard = (request, response, next) => {
-  if (sendBadRequestForEmptyBody(request, response, next)) {
-    return;
-  }
-
   const { name, link } = request.body;
   const owner = request.user._id;
 
@@ -24,7 +18,7 @@ module.exports.createCard = (request, response, next) => {
     const errorMessage = Object.values(validationErrors.errors)
       .map((error) => error.message);
 
-    response.status(400).send({ errors: errorMessage });
+    next(new BadRequestError(errorMessage));
     return;
   }
 
@@ -35,11 +29,6 @@ module.exports.createCard = (request, response, next) => {
 
 module.exports.deleteCard = (request, response, next) => {
   const { cardId } = request.params;
-
-  if (cardId === undefined) {
-    next(new BadRequestError('Не указан id карточки'));
-    return;
-  }
 
   if (!ObjectId.isValid(cardId)) {
     next(new BadRequestError('Неверный id карточки'));
