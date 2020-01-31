@@ -11,11 +11,13 @@ const { getJwtSecret } = require('../tools/getJwtSecret');
 
 
 module.exports.createUser = (request, response, next) => {
-  // eslint-disable-next-line object-curly-newline
-  const { name, about, avatar, email, password } = request.body;
+  const {
+    name, about, avatar, email, password,
+  } = request.body;
 
-  // eslint-disable-next-line object-curly-newline
-  const userModel = new User({ name, about, avatar, email, password });
+  const userModel = new User({
+    name, about, avatar, email, password,
+  });
 
   const validationErrors = userModel.validateSync();
   if (validationErrors) {

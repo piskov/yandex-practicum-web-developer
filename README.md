@@ -100,7 +100,7 @@ Project contains two build configurations:
 
 All builds default to `http://localhost:3000/` and `mongodb://localhost:27017/mestodb`.
 
-Production API is at: https://api.divulge-uncommon.ru
+Production API is at: https://api.divulge-uncommon.ru (`84.201.172.80`)
 
 Places API description:
 - `POST /signup` creates new user with `{ name, about, avatar, email, password }`

@@ -15,6 +15,8 @@ const routes = require('./routes');
 
 require('dotenv').config();
 
+const { PORT = 3000 } = process.env;
+
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -84,5 +86,4 @@ app.use((error, request, response, next) => {
   response.status(statusCode).send({ message });
 });
 
-const { PORT = 3000 } = process.env;
 app.listen(PORT, () => { });
