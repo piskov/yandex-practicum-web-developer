@@ -9,6 +9,8 @@ Project contains two build configurations:
 
 All builds default to `http://localhost:3000/` and `mongodb://localhost:27017/mestodb`.
 
+Production API is at: https://api.divulge-uncommon.ru
+
 ## Places API description:
 - `POST /signup` creates new user with `{ name, about, avatar, email, password }`
 - `POST /signin` with `{ email, password }` — return http-only 7-day cookie with JWT
@@ -19,3 +21,6 @@ All builds default to `http://localhost:3000/` and `mongodb://localhost:27017/me
 - `POST /cards` creates new card with `{ name, link }`
 
 ## Release notes for `1.0.0`:
+- Winston logging at `error.log` and `request.log`
+- request parameters and body validation using Celebrate
+- centralized error handling
